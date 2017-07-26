@@ -17,7 +17,7 @@ export class LoggerStragety{
   ){
   }
   public getStragety(): ILogger {
-    switch (this.platformService.platform){
+    switch (this.platformService.platform.getPlatformCode()){
       case platform_native:
         this._logger=new LoggerNativeService();
         break;

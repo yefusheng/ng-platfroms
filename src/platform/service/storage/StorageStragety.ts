@@ -5,6 +5,7 @@ import {IStorage} from "./IStorage";
 import {StoragePc} from "./pc/StoragePc";
 import {StorageNative} from "./native/StorageNative.service";
 import {Injectable} from "@angular/core";
+import {StorageWeChat} from "./wechat/StorageWeChat";
 /**
  * Created by yefs on 2017/7/11.
  *  本地存储策略
@@ -18,7 +19,7 @@ export class StorageStragety{
   ){
   }
   public getStragety(): IStorage {
-    switch (this.platformService.platform){
+    switch (this.platformService.platform.getPlatformCode()){
       case platform_native:
         this._Storage=new StorageNative();
         break;
@@ -26,7 +27,7 @@ export class StorageStragety{
         this._Storage=new StoragePc();
         break;
       case platform_pc:
-        this._Storage=new StoragePc();
+        this._Storage=new StorageWeChat(this.platformService);
         break;
 
     }

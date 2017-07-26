@@ -1,4 +1,8 @@
 import {Injectable} from "@angular/core";
+import {BasePlatform} from "./BasePlatform";
+import {WechatPlatform} from "./WechatPlatform";
+import {NativePlatform} from "./NativePlatform";
+import {PcPlatform} from "./PcPlatform";
 /**
  * Created by yefs on 2017/7/12.
  * 常量
@@ -9,33 +13,38 @@ export const platform_pc: number = 1;
 export const platform_wechat: number = 2;
 export const platformsName = ["phone", "pc", "wechat"];
 @Injectable()
-export class ExePlatformService {
+export class ExePlatformService extends  BasePlatform{
 
-  platform: number = platform_native;
-
+  platform: any;
   constructor() {
-    this.initPlatfrom();
+      super();
+      this.initPlatform();
   }
 
-  initPlatfrom() {
+  public initPlatform() {
     if (this.is_weixin()) {
-      this.platform = platform_wechat;
+      this.platform=new WechatPlatform();
     } else if (this.isNative()) {
-      this.platform = platform_native;
+      this.platform=new NativePlatform();
     } else {
-      this.platform = platform_pc;
+      this.platform=new PcPlatform();
     }
-    console.log("platform" + this.platform);
+    console.log("platform" + this.platform.getPlatformName());
   }
-
+  public getPlatformContext() {
+    return this.platform.getPlatformContext;
+  }
   /**
    * 获取平台名称
    * @returns {string|string|string}
    */
   getPlatformName(): string {
-    return platformsName[this.platform];
+    return this.platform.getPlatformName();
   }
 
+  public getPlatformCode(): number {
+    return this.platform.getPlatformCode();
+  }
   /**
    * 是否原生平台
    * @returns {boolean}

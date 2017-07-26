@@ -20,8 +20,8 @@ export class ComponentsService{
      new compoentItem(exeUploadFileNativeComponent, {name: 'exeUploadFileNativeComponent'}),
      new compoentItem(exeUploadFilePcComponent, {name: 'exeUploadFilePcComponent'}),
     ]
-    console.log("platform--"+this.platformService.platform);
-    console.log("component--"+uploadCompoents[this.platformService.platform].data.name);
-    return uploadCompoents[this.platformService.platform].component;
+    console.log("platform--"+this.platformService.platform.getPlatformName());
+
+    return uploadCompoents[this.platformService.platform.getPlatformCode()].component;
   }
 }

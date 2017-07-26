@@ -33,7 +33,7 @@ export class HomePage    implements OnInit{
 
     this.storageService.getObject("userInfo",this.uploadinfo);
 
-    this.loggerService.log("getObject",this.uploadinfo.imageUrl);
+    // this.loggerService.log("getObject",this.uploadinfo.imageUrl);
     this.platfromName=this.exePlatformService.getPlatformName();
   }
 
