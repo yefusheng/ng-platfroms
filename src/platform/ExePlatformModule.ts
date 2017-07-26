@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-
+// import "core-js/client/shim";  // Add this import for wechat
 import {TransFileService} from "./service/transfer/TransFile.service";
 import { ExePlatformService} from "./ExePlatform.service";
 import {ComponentsService} from "./component/Components.service";

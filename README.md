@@ -8,7 +8,7 @@ npm install
 
 ng serve 
 
-
+//for android 
 ionic platfrom add android 
 
 
@@ -23,4 +23,16 @@ cordova plugin add cordova-plugin-file
 //..... add other cordova plugin
 
 ionic run android 
+
+//for wechat in android 
+cordova plugin add cordova-plugin-wechat --variable wechatappid=YOUR_WECHAT_APPID（你的微信开放平台id）
+
+//for pc
+
+
+//for wechat 
+add  this in index.html
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+
+
 
