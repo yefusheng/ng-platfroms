@@ -13,6 +13,7 @@ import {Injectable} from "@angular/core";
  */
 @Injectable()
 export class TransFilePc implements ITransFile {
+
   public _uploader: FileUploader;
   public _fileUploadAdaper: FileUploadAdaper;
 
@@ -21,7 +22,7 @@ export class TransFilePc implements ITransFile {
 
   }
 
-  upload(fileUrl: string, serveUrl: string, options?: FileUploadOptions, trustAllHosts?: boolean): Promise<any> {
+  upload(fileUrl: string, serveUrl: string, options?: FileUploadOptions): Promise<any> {
 
     this._uploader = new FileUploader({url: serveUrl});
     this._fileUploadAdaper = new FileUploadAdaper(this._uploader);
@@ -40,11 +41,12 @@ export class TransFilePc implements ITransFile {
     });
   }
 
-  download(source: string, target: string, trustAllHosts?: boolean, options?: { [p: string]: any }): Promise<any> {
+  chooseFile(options?: FileUploadOptions): Promise<any> {
     return undefined;
   }
 
-  onProgress(listener: (event: ProgressEvent) => any): void {
+  download(source: string, target: string, options?: { [p: string]: any }): Promise<any> {
+    return undefined;
   }
 
 

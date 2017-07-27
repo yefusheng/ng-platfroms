@@ -22,6 +22,7 @@ import {exeUploadFilePcComponent} from "./component/fileUpload/pc/UploadFilePc.c
 import {TransFileNative} from "./service/transfer/native/TransFileNative.service";
 import {LoggerStragety} from "./service/logger/LoggerStragety";
 import {LoggerService} from "./service/logger/Logger.service";
+import {exeUploadFileWechatComponent} from "./component/fileUpload/wechat/UploadFileWechat.component";
 
 
 @NgModule({
@@ -29,8 +30,8 @@ import {LoggerService} from "./service/logger/Logger.service";
     FileUploadModule
   ],
   exports: [exeUploadFileComponent],
-  declarations: [exeUploadFileComponent, exeUploadFileNativeComponent, exeUploadFilePcComponent],
-
+  declarations: [exeUploadFileComponent, exeUploadFileNativeComponent, exeUploadFilePcComponent,exeUploadFileWechatComponent],
+  entryComponents: [exeUploadFileComponent, exeUploadFileNativeComponent, exeUploadFilePcComponent,exeUploadFileWechatComponent],
   providers: [
     ExePlatformService,
     {
@@ -75,7 +76,7 @@ import {LoggerService} from "./service/logger/Logger.service";
     CallNumber,
     NativeService,
   ],
-  entryComponents: [exeUploadFileComponent, exeUploadFileNativeComponent, exeUploadFilePcComponent]
+
 })
 export class ExePlatformModule {
 

@@ -1,6 +1,7 @@
 import {BasePlatform} from "./BasePlatform";
 import {Observable} from "rxjs/Observable";
 import {platform_native, platform_wechat, platformsName} from "./ExePlatform.service";
+import {Platform} from "ionic-angular";
 /**
  * Created by yefs on 2017/7/11.
  *
@@ -9,10 +10,10 @@ import {platform_native, platform_wechat, platformsName} from "./ExePlatform.ser
 
 export   class NativePlatform extends  BasePlatform{
 
-  cordova:any;
+  cordova:Platform;
 
   protected initPlatform(): void {
-    this.cordova = (<any>window).cordova;
+    this.cordova = (<any>window).Platform;
     //todo  获取cordova 环境变量
   }
   public getPlatformContext() :any {

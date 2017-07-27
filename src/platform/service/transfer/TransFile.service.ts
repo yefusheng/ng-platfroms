@@ -19,16 +19,19 @@ export class  TransFileService  implements ITransFile {
 
   }
 
-  upload(fileUrl: string, url: string, options?: FileUploadOptions, trustAllHosts?: boolean): Promise<ExeFileUploadResult> {
-    return this.transFile.upload(fileUrl,url,options,trustAllHosts);
+  upload(fileUrl: string, url: string, options?: FileUploadOptions): Promise<ExeFileUploadResult> {
+    return this.transFile.upload(fileUrl,url,options);
   }
 
-  download(source: string, target: string, trustAllHosts?: boolean, options?: { [p: string]: any }): Promise<any> {
+  chooseFile(options?: FileUploadOptions): Promise<any> {
+    return this.transFile.chooseFile(options);
+  }
+
+  download(source: string, target: string, options?: { [p: string]: any }): Promise<any> {
     return undefined;
   }
 
-  onProgress(listener: (event: ProgressEvent) => any): void {
-  }
+
 
 
 

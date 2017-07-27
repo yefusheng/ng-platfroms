@@ -10,6 +10,7 @@ import {FileUploadResult} from "ionic-native";
  */
 @Injectable()
 export class TransFileNative implements ITransFile{
+
   constructor(
     private transfer: Transfer,
   ) {
@@ -38,13 +39,17 @@ export class TransFileNative implements ITransFile{
     return observable.toPromise();
 
   }
-  download(source: string, target: string, trustAllHosts?: boolean, options?: { [s: string]: any; }): Promise<any> {
-    throw new Error('Method not implemented.');
+
+  chooseFile(options?: FileUploadOptions): Promise<any> {
+    throw new Error("Method not implemented.");
   }
 
-  onProgress(listener: (event: ProgressEvent) => any): void {
-    throw new Error('Method not implemented.');
+  download(source: string, target: string, options?: {
+    [s: string]: any;
+  }): Promise<any> {
+    throw new Error("Method not implemented.");
   }
+
 
 
 }
