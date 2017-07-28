@@ -5,9 +5,11 @@ export function stringify(arg: any):string{
 }
 
 export function log(message?: any, ...optionalParams: any[]) {
-          console.log(message,optionalParams);
+  console.log(message,optionalParams);
 }
-
+export function debug(message?: any, ...optionalParams: any[]) {
+  console.log(message,optionalParams);
+}
 /**
  * @private
  * Given a min and max, restrict the given number

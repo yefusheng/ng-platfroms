@@ -5,6 +5,7 @@ import {exeUploadFilePcComponent} from "./fileUpload/pc/UploadFilePc.component";
 import {compoentItem} from "./compoentItem";
 import {ExePlatformService} from "../ExePlatform.service";
 import {exeUploadFileWechatComponent} from "./fileUpload/wechat/UploadFileWechat.component";
+import {log} from "../service/util/util";
 /**
  * 根据平台提供组件
  */
@@ -22,7 +23,7 @@ export class ComponentsService{
      new compoentItem(exeUploadFilePcComponent, {name: 'exeUploadFilePcComponent'}),
      new compoentItem(exeUploadFileWechatComponent, {name: 'exeUploadFileWechatComponent'}),
     ]
-    console.log("platform--"+this.platformService.platform.getPlatformName());
+    log("platform--"+this.platformService.platform.getPlatformName());
 
     return uploadCompoents[this.platformService.platform.getPlatformCode()].component;
   }
