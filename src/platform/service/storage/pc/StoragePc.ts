@@ -12,9 +12,7 @@ import {stringify} from "../../util/util";
 @Injectable()
 export class StoragePc implements IStorage{
 
-  constructor(
-  ){
-  }
+
   saveObject(key: string, value: any): void {
     window.sessionStorage.setItem(key,stringify(value));
   }

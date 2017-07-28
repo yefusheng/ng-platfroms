@@ -1,5 +1,5 @@
 
-import {ExePlatformService, platform_native, platform_pc, platform_wechat} from "../../ExePlatform.service";
+import {ExePlatformService, Platforms} from "../../ExePlatform.service";
 import {Observable} from "rxjs/Observable";
 import {IStorage} from "./IStorage";
 import {StoragePc} from "./pc/StoragePc";
@@ -20,14 +20,14 @@ export class StorageStragety{
   }
   public getStragety(): IStorage {
     switch (this.platformService.platform.getPlatformCode()){
-      case platform_native:
+      case Platforms.mobile:
         this._Storage=new StorageNative();
         break;
-      case platform_wechat:
-        this._Storage=new StoragePc();
-        break;
-      case platform_pc:
+      case Platforms.wechat:
         this._Storage=new StorageWeChat(this.platformService);
+        break;
+      case Platforms.windows:
+        this._Storage=new StoragePc();
         break;
 
     }

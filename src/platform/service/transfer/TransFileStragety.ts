@@ -1,9 +1,10 @@
 import {ITransFile} from "./ITransFile";
 import {TransFilePc} from "./pc/TransFilePc";
 import {TransFileWechat} from "./wechat/TransFileWechat.service";
-import {ExePlatformService, platform_native, platform_pc, platform_wechat} from "../../ExePlatform.service";
+import {ExePlatformService, Platforms} from "../../ExePlatform.service";
 import {Injectable} from "@angular/core";
 import {TransFileNative} from "./native/TransFileNative.service";
+import {Platform} from "ionic-angular";
 /**
  * Created by yefs on 2017/7/11.
  *  文件传输
@@ -21,13 +22,13 @@ export class TransFileStragety   {
   _transFile: ITransFile;
   public getStragety(): ITransFile {
     switch (this.platformService.platform.getPlatformCode()) {
-      case platform_native:
+      case Platforms.mobile:
         // this._transFile=new TransFileNative();
         break;
-      case platform_wechat:
+      case Platforms.wechat:
         this._transFile = new TransFileWechat(this.platformService);
         break;
-      case platform_pc:
+      case Platforms.windows:
         this._transFile = new TransFilePc();
         break;
     }

@@ -8,14 +8,6 @@ export class LoggerPcService implements ILogger{
 
 
 
-  constructor(
-
-  ){
-
-
-  }
-
-
   log(message?: any, ...optionalParams: any[]): void {
     console.log(message,optionalParams);
   }

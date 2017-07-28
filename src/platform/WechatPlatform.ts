@@ -1,6 +1,7 @@
 import {BasePlatform} from "./BasePlatform";
 import {Observable} from "rxjs/Observable";
-import {platform_wechat, platformsName} from "./ExePlatform.service";
+import {Platforms} from "./ExePlatform.service";
+import {Platform} from "ionic-angular";
 /**
  * Created by yefs on 2017/7/11.
  *
@@ -25,11 +26,11 @@ export class WechatPlatform extends BasePlatform {
   }
 
   public getPlatformName(): any {
-    return platformsName[platform_wechat];
+    return Platforms.wechat
   }
 
   public getPlatformCode(): any {
-    return platform_wechat;
+    return Platforms.wechat;
   }
 
   _getWxOption(tenantId: string) {

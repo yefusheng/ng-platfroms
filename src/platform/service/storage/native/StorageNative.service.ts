@@ -11,10 +11,7 @@ import {stringify} from "../../util/util";
 @Injectable()
 export class StorageNative implements IStorage{
 
-  constructor(
 
-  ){
-  }
   saveObject(key: string, value: any): void {
 
     localStorage.setItem(key,stringify(value));

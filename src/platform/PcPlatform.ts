@@ -1,6 +1,6 @@
 import {BasePlatform} from "./BasePlatform";
-import {Observable} from "rxjs/Observable";
-import {platform_pc, platform_wechat, platformsName} from "./ExePlatform.service";
+import {Platforms} from "./ExePlatform.service";
+
 /**
  * Created by yefs on 2017/7/11.
  *
@@ -17,10 +17,10 @@ export   class PcPlatform extends  BasePlatform{
     return this.window;
   }
   public getPlatformName() :any {
-    return platformsName[platform_pc];
+    return Platforms.windows;
   }
   public getPlatformCode() :any {
-    return platform_pc;
+    return Platforms.windows;
   }
 
 }

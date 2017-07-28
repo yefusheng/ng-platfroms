@@ -1,6 +1,6 @@
 import {BasePlatform} from "./BasePlatform";
 import {Observable} from "rxjs/Observable";
-import {platform_native, platform_wechat, platformsName} from "./ExePlatform.service";
+import { Platforms} from "./ExePlatform.service";
 import {Platform} from "ionic-angular";
 /**
  * Created by yefs on 2017/7/11.
@@ -24,10 +24,10 @@ export   class NativePlatform extends  BasePlatform{
     return this.platform;
   }
   public getPlatformName() :any {
-    return platformsName[platform_native];
+    return Platforms.mobile;
   }
   public getPlatformCode() :any {
-    return platform_native;
+    return Platforms.mobile;
   }
 
 }

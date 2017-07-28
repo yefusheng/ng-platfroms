@@ -1,5 +1,5 @@
 
-import {ExePlatformService, platform_native, platform_pc, platform_wechat} from "../../ExePlatform.service";
+import {ExePlatformService, Platforms} from "../../ExePlatform.service";
 import {Injectable} from "@angular/core";
 import {ILogger} from "./ILogger";
 import {LoggerNativeService} from "./native/LoggerNative.service";
@@ -18,13 +18,13 @@ export class LoggerStragety{
   }
   public getStragety(): ILogger {
     switch (this.platformService.platform.getPlatformCode()){
-      case platform_native:
+      case Platforms.mobile:
         this._logger=new LoggerNativeService();
         break;
-      case platform_wechat:
+      case Platforms.wechat:
         this._logger=new LoggerPcService();
         break;
-      case platform_pc:
+      case Platforms.windows:
         this._logger=new LoggerPcService();
         break;
 

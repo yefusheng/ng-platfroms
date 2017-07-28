@@ -7,14 +7,6 @@ import {ILogger} from "../ILogger";
 export class LoggerNativeService implements ILogger{
 
 
-
-  constructor(
-
-  ){
-
-  }
-
-
   log(message?: any, ...optionalParams: any[]): void {
     console.log(message,optionalParams);
   }
