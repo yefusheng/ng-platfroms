@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import {ExePlatformModule} from "../platform/ExePlatformModule";
 import {FileUploadModule} from "../platform/service/transfer/pc/file-upload/file-upload.module";
+import {AuthService} from "../service/Auth.service";
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {FileUploadModule} from "../platform/service/transfer/pc/file-upload/file
   providers: [
     StatusBar,
     SplashScreen,
+    AuthService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

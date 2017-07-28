@@ -6,6 +6,7 @@ import {
   ControlValueAccessor,
   NG_VALUE_ACCESSOR
 } from "@angular/forms";
+import {AuthService} from "../../../../service/Auth.service";
 export const IMAGE_UPLOAD_VALUE_ACCESSOR: any={
 
   provide: NG_VALUE_ACCESSOR,
@@ -51,7 +52,8 @@ export class exeUploadFilePcComponent implements OnInit, OnChanges,ControlValueA
   uploader:FileUploader;
   headersList?:Array<Headers>=new Array<Headers>();
   constructor(
-    public platformService:ExePlatformService
+    public platformService:ExePlatformService,
+    public authService:AuthService
   ) {
 
   }
@@ -65,13 +67,14 @@ export class exeUploadFilePcComponent implements OnInit, OnChanges,ControlValueA
    this.initFileUploader();
   }
   initFileUploader() {
-    this.fileUploaderOptions={  url: this.platformService.uploadUrl,
-      authTokenHeader:this.platformService.token,
+    this.fileUploaderOptions={
+      url: this.platformService.uploadUrl,
+      authTokenHeader:this.authService.getToken(),
       autoUpload:true};
 
     let  header:Headers={
       name:"token",
-      value:this.platformService.token
+      value:this.authService.getToken()
     };
 
     this.headersList.push(header);

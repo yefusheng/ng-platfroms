@@ -33,13 +33,13 @@ export class ExePlatformService extends  BasePlatform{
   platform: any;
   _userAgent:string;
   constructor(
-    private plt:Platform
+    private plt:Platform,
   ) {
       super();
     log("_userAgent",this._userAgent);
       this.initPlatform();
-
-    log("platformName",this.plt._platforms[0]);
+    //
+    // log("platformName",this.plt._platforms[0]);
   }
 
   public initPlatform() {
@@ -102,7 +102,6 @@ export class ExePlatformService extends  BasePlatform{
     return this._userAgent.indexOf(userAgent) > -1?true :false;
   }
 
-  token: string = "yObxVpQqz9OZpev1AsLG88N%2bnUXqL1x%2bo2mSerEDthg%3d";
 
   userUrl: string = "https://tests.exexm.com:800";
   uploadUrl = this.userUrl + "/api/User/Picture/V2";

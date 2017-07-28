@@ -24,7 +24,6 @@ import {LoggerStragety} from "./service/logger/LoggerStragety";
 import {LoggerService} from "./service/logger/Logger.service";
 import {exeUploadFileWechatComponent} from "./component/fileUpload/wechat/UploadFileWechat.component";
 
-
 @NgModule({
   imports: [
     FileUploadModule
@@ -33,7 +32,8 @@ import {exeUploadFileWechatComponent} from "./component/fileUpload/wechat/Upload
   declarations: [exeUploadFileComponent, exeUploadFileNativeComponent, exeUploadFilePcComponent,exeUploadFileWechatComponent],
   entryComponents: [exeUploadFileComponent, exeUploadFileNativeComponent, exeUploadFilePcComponent,exeUploadFileWechatComponent],
   providers: [
-    ExePlatformService,
+    ExePlatformService
+    ,
     {
       provide: TransFileStragety, useClass: TransFileStragety,deps:[ExePlatformService]
     },

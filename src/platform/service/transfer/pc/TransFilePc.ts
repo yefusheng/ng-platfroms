@@ -42,11 +42,11 @@ export class TransFilePc implements ITransFile {
   }
 
   chooseFile(options?: FileUploadOptions): Promise<any> {
-    return undefined;
+    throw new Error("Method not implemented.");
   }
 
   download(source: string, target: string, options?: { [p: string]: any }): Promise<any> {
-    return undefined;
+    throw new Error("Method not implemented.");
   }
 
 
