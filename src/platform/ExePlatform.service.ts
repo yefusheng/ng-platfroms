@@ -3,6 +3,7 @@ import {BasePlatform} from "./BasePlatform";
 import {WechatPlatform} from "./WechatPlatform";
 import {NativePlatform} from "./NativePlatform";
 import {PcPlatform} from "./PcPlatform";
+import {Platform} from "ionic-angular";
 /**
  * Created by yefs on 2017/7/12.
  * 常量
@@ -16,7 +17,9 @@ export const platformsName = ["phone", "pc", "wechat"];
 export class ExePlatformService extends  BasePlatform{
 
   platform: any;
-  constructor() {
+  constructor(
+    private _platform:Platform
+  ) {
       super();
       this.initPlatform();
   }
@@ -25,7 +28,7 @@ export class ExePlatformService extends  BasePlatform{
     if (this.is_weixin()) {
       this.platform=new WechatPlatform();
     } else if (this.isNative()) {
-      this.platform=new NativePlatform();
+      this.platform=new NativePlatform(this._platform);
     } else {
       this.platform=new PcPlatform();
     }
@@ -59,6 +62,7 @@ export class ExePlatformService extends  BasePlatform{
         return true;
       }
     }
+
     return false;
   }
 

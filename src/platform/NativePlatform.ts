@@ -10,14 +10,18 @@ import {Platform} from "ionic-angular";
 
 export   class NativePlatform extends  BasePlatform{
 
-  cordova:Platform;
+  constructor(
+
+    private platform:Platform) {
+    super();
+
+  }
 
   protected initPlatform(): void {
-    this.cordova = (<any>window).Platform;
-    //todo  获取cordova 环境变量
+
   }
   public getPlatformContext() :any {
-    return this.cordova;
+    return this.platform;
   }
   public getPlatformName() :any {
     return platformsName[platform_native];
