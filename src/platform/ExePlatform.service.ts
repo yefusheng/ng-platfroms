@@ -4,9 +4,23 @@ import {WechatPlatform} from "./WechatPlatform";
 import {NativePlatform} from "./NativePlatform";
 import {PcPlatform} from "./PcPlatform";
 import {Platform} from "ionic-angular";
+import {log} from "./service/util/util";
 /**
  * Created by yefs on 2017/7/12.
  * 常量
+ *    * | Platform Name   | Description                        |
+ * |-----------------|------------------------------------|
+ * | android         | on a device running Android.       |
+ * | cordova         | on a device running Cordova.       |
+ * | core            | on a desktop device.               |
+ * | ios             | on a device running iOS.           |
+ * | ipad            | on an iPad device.                 |
+ * | iphone          | on an iPhone device.               |
+ * | mobile          | on a mobile device.                |
+ * | mobileweb       | in a browser on a mobile device.   |
+ * | phablet         | on a phablet device.               |
+ * | tablet          | on a tablet device.                |
+ * | windows         | on a device running Windows.       |
  */
 
 export const platform_native: number = 0;
@@ -17,19 +31,24 @@ export const platformsName = ["phone", "pc", "wechat"];
 export class ExePlatformService extends  BasePlatform{
 
   platform: any;
+  _userAgent:string;
   constructor(
-    private _platform:Platform
+    private plt:Platform
   ) {
       super();
+    console.log("_userAgent",this._userAgent);
       this.initPlatform();
+
+    console.log("platformName",this.plt._platforms[0]);
   }
 
   public initPlatform() {
-    if (this.is_weixin()) {
+    this._userAgent = navigator.userAgent.toLowerCase();
+    if (this.isWechat()) {
       this.platform=new WechatPlatform();
     } else if (this.isNative()) {
-      this.platform=new NativePlatform(this._platform);
-    } else {
+      this.platform=new NativePlatform(this.plt);
+    } else if(this.isWindow()){
       this.platform=new PcPlatform();
     }
     console.log("platform" + this.platform.getPlatformName());
@@ -48,35 +67,39 @@ export class ExePlatformService extends  BasePlatform{
   public getPlatformCode(): number {
     return this.platform.getPlatformCode();
   }
-  /**
-   * 是否原生平台
-   * @returns {boolean}
-   */
+  // /**
+  //  * 是否原生平台
+  //  * @returns {boolean}
+  //  */
+  // isNative(): boolean {
+  //   let Agents = ["android", "iphone",
+  //     "ipad", "ipod"];
+  //   for (var v = 0; v < Agents.length; v++) {
+  //     if (this.plt.is(Agents[v])) {
+  //       return true;
+  //     }
+  //   }
+  //   return false;
+  // }
   isNative(): boolean {
     let Agents = ["android", "iphone",
       "ipad", "ipod"];
-    let userAgent = navigator.userAgent.toLowerCase();
-
     for (var v = 0; v < Agents.length; v++) {
-      if (userAgent.indexOf(Agents[v]) > 0) {
+      if (this.isPlatform(Agents[v])) {
         return true;
       }
     }
-
     return false;
   }
+  isWindow(): boolean {
+    return this.isPlatform("windows");
+  }
 
-  /**
-   * 是否微信平台
-   * @returns {boolean}
-   */
-  is_weixin(): boolean {
-    let userAgent = navigator.userAgent.toLowerCase();
-    if (userAgent.indexOf("micromessenger") > -1) {
-      return true;
-    } else {
-      return false;
-    }
+  isWechat(): boolean {
+    return this.isPlatform("micromessenger");
+  }
+  isPlatform(userAgent:string): boolean {
+    return this._userAgent.indexOf(userAgent) > -1?true :false;
   }
 
   token: string = "yObxVpQqz9OZpev1AsLG88N%2bnUXqL1x%2bo2mSerEDthg%3d";
