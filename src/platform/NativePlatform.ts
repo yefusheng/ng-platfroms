@@ -1,6 +1,6 @@
 import {BasePlatform} from "./BasePlatform";
 import {Observable} from "rxjs/Observable";
-import { Platforms} from "./ExePlatform.service";
+import {mobile, Platforms} from "./ExePlatform.service";
 import {Platform} from "ionic-angular";
 /**
  * Created by yefs on 2017/7/11.
@@ -24,7 +24,7 @@ export   class NativePlatform extends  BasePlatform{
     return this.platform;
   }
   public getPlatformName() :any {
-    return Platforms.mobile;
+    return mobile;
   }
   public getPlatformCode() :any {
     return Platforms.mobile;

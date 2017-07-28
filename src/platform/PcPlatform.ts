@@ -1,5 +1,5 @@
 import {BasePlatform} from "./BasePlatform";
-import {Platforms} from "./ExePlatform.service";
+import {Platforms, windows} from "./ExePlatform.service";
 
 /**
  * Created by yefs on 2017/7/11.
@@ -17,7 +17,7 @@ export   class PcPlatform extends  BasePlatform{
     return this.window;
   }
   public getPlatformName() :any {
-    return Platforms.windows;
+    return windows;
   }
   public getPlatformCode() :any {
     return Platforms.windows;

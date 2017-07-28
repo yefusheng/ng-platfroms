@@ -22,8 +22,11 @@ import {log} from "./service/util/util";
  * | tablet          | on a tablet device.                |
  * | windows         | on a device running Windows.       |
  */
-export enum Platforms { 'mobile', 'windows', 'wechat'} ;
-// export const platformsName = ["phone", "windows", "wechat"];
+export const windows ="windows";
+export const mobile ="mobile";
+export const wechat ="wechat";
+export enum Platforms { mobile, windows,wechat } ;
+
 @Injectable()
 export class ExePlatformService extends  BasePlatform{
 
