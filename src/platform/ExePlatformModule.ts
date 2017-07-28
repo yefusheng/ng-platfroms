@@ -23,6 +23,8 @@ import {TransFileNative} from "./service/transfer/native/TransFileNative.service
 import {LoggerStragety} from "./service/logger/LoggerStragety";
 import {LoggerService} from "./service/logger/Logger.service";
 import {exeUploadFileWechatComponent} from "./component/fileUpload/wechat/UploadFileWechat.component";
+import {BaseAuthService} from "./BaseAuth.service";
+import {AuthService} from "../service/Auth.service";
 
 @NgModule({
   imports: [
@@ -32,6 +34,9 @@ import {exeUploadFileWechatComponent} from "./component/fileUpload/wechat/Upload
   declarations: [exeUploadFileComponent, exeUploadFileNativeComponent, exeUploadFilePcComponent,exeUploadFileWechatComponent],
   entryComponents: [exeUploadFileComponent, exeUploadFileNativeComponent, exeUploadFilePcComponent,exeUploadFileWechatComponent],
   providers: [
+    {
+      provide: BaseAuthService, useClass: AuthService
+    },
     ExePlatformService
     ,
     {
