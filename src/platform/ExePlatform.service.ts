@@ -36,10 +36,10 @@ export class ExePlatformService extends  BasePlatform{
     private plt:Platform
   ) {
       super();
-    console.log("_userAgent",this._userAgent);
+    log("_userAgent",this._userAgent);
       this.initPlatform();
 
-    console.log("platformName",this.plt._platforms[0]);
+    log("platformName",this.plt._platforms[0]);
   }
 
   public initPlatform() {
@@ -51,7 +51,7 @@ export class ExePlatformService extends  BasePlatform{
     } else if(this.isWindow()){
       this.platform=new PcPlatform();
     }
-    console.log("platform" + this.platform.getPlatformName());
+    log("platform" + this.platform.getPlatformName());
   }
   public getPlatformContext() {
     return this.platform.getPlatformContext;

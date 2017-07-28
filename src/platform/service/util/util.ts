@@ -1,8 +1,11 @@
 
-
+export function stringify(arg: any):string{
+  if(typeof arg === "string") return arg;
+  return JSON.stringify(arg);
+}
 
 export function log(message?: any, ...optionalParams: any[]) {
-  return console.log(message,optionalParams);
+          console.log(message,optionalParams);
 }
 
 /**

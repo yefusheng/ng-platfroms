@@ -3,6 +3,7 @@ import {Transfer, TransferObject} from "@ionic-native/transfer";
 import {Injectable} from "@angular/core";
 import { Observable } from 'rxjs'
 import {FileUploadResult} from "ionic-native";
+import {log} from "../../util/util";
 /**
  * Created by yefs on 2017/7/11.
  *  文件传输
@@ -32,7 +33,7 @@ export class TransFileNative implements ITransFile{
     let observable= Observable.fromPromise(this.fileTransfer.upload(path,url, options)).map((result)=> {
         let exeFileUploadResult :ExeFileUploadResult;
         exeFileUploadResult.response=result.response;
-        console.log("exeFileUploadResult"+result);
+        log("exeFileUploadResult"+result);
        return exeFileUploadResult;
     });
 

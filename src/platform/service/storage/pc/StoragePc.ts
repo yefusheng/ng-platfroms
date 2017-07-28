@@ -1,6 +1,7 @@
 
 import {IStorage} from "../IStorage";
 import {Injectable} from "@angular/core";
+import {stringify} from "../../util/util";
 
 /**
  * Created by yefs on 2017/7/11.
@@ -15,7 +16,7 @@ export class StoragePc implements IStorage{
   ){
   }
   saveObject(key: string, value: any): void {
-    window.sessionStorage.setItem(key,this.stringify(value));
+    window.sessionStorage.setItem(key,stringify(value));
   }
 
   getObject(key: string, defaule: any): any {
@@ -25,13 +26,7 @@ export class StoragePc implements IStorage{
     }else {
       value=defaule;
     }
-
     return value;
   }
-
-  stringify(arg: any):string{
-    if(typeof arg === "string") return arg;
-    return JSON.stringify(arg);
-  };
 
 }
