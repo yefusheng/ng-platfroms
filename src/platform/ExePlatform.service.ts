@@ -67,20 +67,7 @@ export class ExePlatformService extends  BasePlatform{
   public getPlatformCode(): number {
     return this.platform.getPlatformCode();
   }
-  // /**
-  //  * 是否原生平台
-  //  * @returns {boolean}
-  //  */
-  // isNative(): boolean {
-  //   let Agents = ["android", "iphone",
-  //     "ipad", "ipod"];
-  //   for (var v = 0; v < Agents.length; v++) {
-  //     if (this.plt.is(Agents[v])) {
-  //       return true;
-  //     }
-  //   }
-  //   return false;
-  // }
+
   isNative(): boolean {
     let Agents = ["android", "iphone",
       "ipad", "ipod"];
@@ -98,8 +85,9 @@ export class ExePlatformService extends  BasePlatform{
   isWechat(): boolean {
     return this.isPlatform("micromessenger");
   }
-  isPlatform(userAgent:string): boolean {
-    return this._userAgent.indexOf(userAgent) > -1?true :false;
+  isPlatform(platformName:string): boolean {
+    // return this.plt.is(platformName);
+    return this._userAgent.indexOf(platformName) > -1?true :false;
   }
 
 
