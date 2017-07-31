@@ -13,18 +13,18 @@ import {LoggerService} from "../../platform/service/logger/Logger.service";
   templateUrl: 'home.html'
 })
 export class HomePage    implements OnInit{
-
+  userUrl: string = "https://tests.exexm.com:800";
+  uploadUrl = this.userUrl + "/api/User/Picture/V2";
   uploadinfo:any={
     imageUrl:"test",
-    serverUrl:this.exePlatformService.uploadUrl
-
+    serverUrl:this.uploadUrl
   };
   platfromName:string="";
   constructor(private storageService:StorageService,
               private  exePlatformService:ExePlatformService,
               private  loggerService:LoggerService
   ) {
-    this.uploadinfo.serverUrl=exePlatformService.uploadUrl;
+    this.uploadinfo.serverUrl=this.uploadUrl;
 
     this.loggerService.log("serverUrl"+this.uploadinfo.serverUrl);
   }

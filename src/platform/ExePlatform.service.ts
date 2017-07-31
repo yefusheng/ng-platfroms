@@ -38,8 +38,7 @@ export class ExePlatformService extends  BasePlatform{
       super();
     log("_userAgent",this._userAgent);
       this.initPlatform();
-    //
-    // log("platformName",this.plt._platforms[0]);
+
   }
 
   public initPlatform() {
@@ -91,6 +90,5 @@ export class ExePlatformService extends  BasePlatform{
   }
 
 
-  userUrl: string = "https://tests.exexm.com:800";
-  uploadUrl = this.userUrl + "/api/User/Picture/V2";
+
 }

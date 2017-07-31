@@ -47,7 +47,7 @@ export class exeUploadFileComponent implements AfterViewInit, OnDestroy {
 
     let componentFactory = this._componentFactoryResolver.resolveComponentFactory(this.componentsService.getUploadComponent());
     let componentRef = this.uploadFile.createComponent(componentFactory);
-
+     componentRef.instance.serverUrl=this.serverUrl;
 
     // let providers = ReflectiveInjector.resolve([TransFileService]); //为组件添加 providers
     // let injector = ReflectiveInjector.fromResolvedProviders(providers, this.exeUploadId.parentInjector); //创建注入器给 component (记得要继承哦)

@@ -7,6 +7,7 @@ import {
   NG_VALUE_ACCESSOR
 } from "@angular/forms";
 import {AuthService} from "../../../../service/Auth.service";
+import {log} from "../../../service/util/util";
 export const IMAGE_UPLOAD_VALUE_ACCESSOR: any={
 
   provide: NG_VALUE_ACCESSOR,
@@ -52,7 +53,6 @@ export class exeUploadFilePcComponent implements OnInit, OnChanges,ControlValueA
   uploader:FileUploader;
   headersList?:Array<Headers>=new Array<Headers>();
   constructor(
-    public platformService:ExePlatformService,
     public authService:AuthService
   ) {
 
@@ -68,10 +68,10 @@ export class exeUploadFilePcComponent implements OnInit, OnChanges,ControlValueA
   }
   initFileUploader() {
     this.fileUploaderOptions={
-      url: this.platformService.uploadUrl,
+      url: this.serverUrl,
       authTokenHeader:this.authService.getToken(),
       autoUpload:true};
-
+    log("initFileUploader serverUrl",this.serverUrl);
     let  header:Headers={
       name:"token",
       value:this.authService.getToken()
@@ -85,7 +85,7 @@ export class exeUploadFilePcComponent implements OnInit, OnChanges,ControlValueA
 
 
     this.uploader.onSuccessItem =this._onSuccessItem;
-
+    log("initFileUploader token",this.authService.getToken());
   }
 
   private _registerOnChange=function(value: any){
@@ -94,13 +94,13 @@ export class exeUploadFilePcComponent implements OnInit, OnChanges,ControlValueA
   _onSuccessItem =function (item: any,response:string,status:number, headers:any) {
     let  responseObject=JSON.parse(response);
     let data = responseObject['data'];
-    console.log(response);
+    log("_onSuccessItem",response);
 
     this.isFail = false;
     this._registerOnChange(data["picture"]);
     this._imageUrl = data["picture"];
 
-    console.log("_imageUrl"+this._imageUrl);
+   log("_imageUrl"+this._imageUrl);
   }
 
   writeValue(obj: any): void {
