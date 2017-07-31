@@ -7,7 +7,8 @@ import {ExePlatformService} from "../ExePlatform.service";
 import {exeUploadFileWechatComponent} from "./fileUpload/wechat/UploadFileWechat.component";
 import {log} from "../service/util/util";
 /**
- * 根据平台提供组件
+ * 动态组件提供商
+ * @author yefs
  */
 @Injectable()
 export class ComponentsService{

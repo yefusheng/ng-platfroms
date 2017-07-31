@@ -5,7 +5,7 @@ import {Platform} from "ionic-angular";
 /**
  * Created by yefs on 2017/7/11.
  *
- * 平台基类
+ * 微信平台
  */
 
 export class WechatPlatform extends BasePlatform {

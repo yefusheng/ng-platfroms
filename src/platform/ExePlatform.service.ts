@@ -21,6 +21,8 @@ import {log} from "./service/util/util";
  * | phablet         | on a phablet device.               |
  * | tablet          | on a tablet device.                |
  * | windows         | on a device running Windows.       |
+ *
+ * 跨平台管理
  */
 export const windows ="windows";
 export const mobile ="mobile";

@@ -4,7 +4,7 @@ import {Platforms, windows} from "./ExePlatform.service";
 /**
  * Created by yefs on 2017/7/11.
  *
- * pc平台
+ * pc平台上下文
  */
 
 export   class PcPlatform extends  BasePlatform{

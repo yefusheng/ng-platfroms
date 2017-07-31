@@ -5,7 +5,7 @@ import {Platform} from "ionic-angular";
 /**
  * Created by yefs on 2017/7/11.
  *
- * 原生平台基类
+ * 原生平台
  */
 
 export   class NativePlatform extends  BasePlatform{
