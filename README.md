@@ -1,23 +1,36 @@
 # ng-platfroms
 ***an demo，use angular/ionic， for cross platform。基于angular4，实现各平台统一接口和视图***
 
+在使用前端做跨平台项目时，会遇到各平台差异问题,如果没有抽取公共部分，在合并各个平台代码分支时，冲突会比较多，而且对合并人员对代码的熟悉成都要求很高。
+
+本文旨在利用angular特性及代码设计，尝试提出方案。
+
+## how to run
 
 
-#### **//-------------------------------------------------------how to run**-------------------------------------------------
 
-//**you need install node.js**
+//先安装 node.js
 
-npm install
+用git克隆本项目，从命令行进入进入项目根目录，依次执行以下命令：
 
-ng serve 
+```
+npm i -g cnpm --registry=https://registry.npm.taobao.org
+cnpm i -g @angular/cli
+cnpm install
+ng serve
+
+```
+
+
 
 
 
 
 
 //for android 
-ionic platfrom add android 
 
+```
+ionic platfrom add android 
 
 cordova plugin add cordova-plugin-camera
 
@@ -29,16 +42,24 @@ cordova plugin add cordova-plugin-file
 
 //..... add other cordova plugin
 
-
-
 ionic run android 
+```
+
+
+
+
+
+
 
 
 
 
 
 **//for wechat in android** 
+
+```
 cordova plugin add cordova-plugin-wechat --variable wechatappid=YOUR_WECHAT_APPID（你的微信开放平台id）
+```
 
 
 
