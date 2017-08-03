@@ -69,9 +69,15 @@ add  this in index.html
 
 
 
-#### **//-------------------------------------------------------how to use**--------------------------------------------
 
-在app.module.ts模块引入ExePlatformModule模块。并且实现AuthService集成BaseAuthService
+
+
+
+## how to use code 
+
+
+
+在app.module.ts模块引入ExePlatformModule模块。并且实现AuthService继承BaseAuthService
 
 ```
 export declare class BaseAuthService {
@@ -83,13 +89,10 @@ export declare class BaseAuthService {
 
 
 
+## FAQ
 
+1. android build fail 
 
- **//------------------------------------------------------FAQ**--------------------------------------------
-
-
-
-1build fail 
 
 `Starting a new Gradle Daemon for this build (subsequent builds will be faster).`
 
@@ -122,3 +125,11 @@ allprojects {
 }
 
 https://www.zhihu.com/question/37810416/answer/73703268
+
+
+
+2微信平台无法使用
+
+需要用微信调试工具
+
+https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1455784140
