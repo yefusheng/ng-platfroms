@@ -2,6 +2,7 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core'
 import {ActionSheetController, Platform} from "ionic-angular";
 import {NativeService} from "../../../service/transfer/native/NativeService";
 import {TransFileNative} from "../../../service/transfer/native/TransFileNative.service";
+import {TransFileService} from "../../../service/transfer/TransFile.service";
 
 @Component({
   selector: 'exe-upload-file-native',
@@ -36,7 +37,7 @@ export class exeUploadFileNativeComponent implements OnInit, OnChanges {
     private _platform: Platform,
     private nativeService: NativeService,
     public actionsheetCtrl: ActionSheetController,
-    public fileService : TransFileNative
+    public fileService : TransFileService
   ) {
 
   }
@@ -121,40 +122,24 @@ export class exeUploadFileNativeComponent implements OnInit, OnChanges {
   saveAvatar(){
 
     this.fileService
-      .uploadPicture(this.avatarPath,"")
+      .upload(this.avatarPath,"")
       .then(
 
         exeFileUploadResult =>{
-
-
-
           let response: any;
           let data: any;
           response = JSON.parse(exeFileUploadResult.response);
-
           if (response.code!=200){
 
             alert("error1"+exeFileUploadResult.response);
             return;
           }
-
-          // if(this._httpConfig.responseSuccessCode.success != response.code){
-          //
-          //   alert(FileUploadResult.response+"error2"+response.code+"error3"+response);
-          //   return ;
-          // }
-
           if( !('data' in response)){
 
             alert("error3"+response);
             return;
           }
-
           data=response.data;
-          // this.userInfo.logoUrl = data.url;
-          // this.dataService.set(StorageConfig.UserInfoKey, this.userInfo);
-
-
         },
         (err) => {
           // error

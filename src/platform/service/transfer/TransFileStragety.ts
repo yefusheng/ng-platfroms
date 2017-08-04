@@ -23,7 +23,7 @@ export class TransFileStragety   {
   public getStragety(): ITransFile {
     switch (this.platformService.platform.getPlatformCode()) {
       case Platforms.mobile:
-        // this._transFile=new TransFileNative();
+        this._transFile=new TransFileNative();
         break;
       case Platforms.wechat:
         this._transFile = new TransFileWechat(this.platformService);

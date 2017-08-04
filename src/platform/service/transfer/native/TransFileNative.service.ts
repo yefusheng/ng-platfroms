@@ -12,12 +12,13 @@ import {log} from "../../util/util";
 @Injectable()
 export class TransFileNative implements ITransFile{
 
-  constructor(
-    private transfer: Transfer,
-  ) {
-  }
 
-  fileTransfer: TransferObject = this.transfer.create();
+  constructor(
+  ) {
+
+   }
+
+  fileTransfer: TransferObject = new Transfer().create();
   /**
    * app上传图片
    */

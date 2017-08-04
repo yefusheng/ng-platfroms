@@ -1,5 +1,5 @@
 import {Component, forwardRef, HostListener, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {FileUploader, FileUploaderOptions,Headers} from "../../../service/transfer/pc/file-upload/file-uploader.class";
+import {FileUploader, FileUploaderOptions, Headers} from "../../../service/transfer/pc/file-upload/file-uploader.class";
 import {ExePlatformService} from "../../../ExePlatform.service";
 import {
 
@@ -8,7 +8,7 @@ import {
 } from "@angular/forms";
 import {AuthService} from "../../../../service/Auth.service";
 import {log} from "../../../service/util/util";
-export const IMAGE_UPLOAD_VALUE_ACCESSOR: any={
+export const IMAGE_UPLOAD_VALUE_ACCESSOR: any = {
 
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => exeUploadFilePcComponent),
@@ -17,11 +17,11 @@ export const IMAGE_UPLOAD_VALUE_ACCESSOR: any={
 @Component({
   selector: 'exe-upload-file-pc',
   templateUrl: 'UploadFilePc.html',
-  providers: [IMAGE_UPLOAD_VALUE_ACCESSOR ],
+  providers: [IMAGE_UPLOAD_VALUE_ACCESSOR],
 
 })
 
-export class exeUploadFilePcComponent implements OnInit, OnChanges,ControlValueAccessor {
+export class exeUploadFilePcComponent implements OnInit, OnChanges, ControlValueAccessor {
 
 
   @Input()
@@ -48,59 +48,59 @@ export class exeUploadFilePcComponent implements OnInit, OnChanges,ControlValueA
   isUploading: boolean;
 
 
+  fileUploaderOptions: FileUploaderOptions;
+  uploader: FileUploader;
+  headersList?: Array<Headers> = new Array<Headers>();
 
-  fileUploaderOptions:FileUploaderOptions;
-  uploader:FileUploader;
-  headersList?:Array<Headers>=new Array<Headers>();
-  constructor(
-    public authService:AuthService
-  ) {
+  constructor(public authService: AuthService) {
 
   }
-
 
 
   ngOnChanges(changes: SimpleChanges): void {
 
   }
+
   ngOnInit() {
-   this.initFileUploader();
+    this.initFileUploader();
   }
+
   initFileUploader() {
-    this.fileUploaderOptions={
+    this.fileUploaderOptions = {
       url: this.serverUrl,
-      authTokenHeader:this.authService.getToken(),
-      autoUpload:true};
-    log("initFileUploader serverUrl",this.serverUrl);
-    let  header:Headers={
-      name:"token",
-      value:this.authService.getToken()
+      authTokenHeader: this.authService.getToken(),
+      autoUpload: true
+    };
+
+    let header: Headers = {
+      name: "token",
+      value: this.authService.getToken()
     };
 
     this.headersList.push(header);
 
-    this.fileUploaderOptions.headers=this.headersList;
+    this.fileUploaderOptions.headers = this.headersList;
     this.uploader = new FileUploader(
       this.fileUploaderOptions);
 
 
-    this.uploader.onSuccessItem =this._onSuccessItem;
-    log("initFileUploader token",this.authService.getToken());
+    this.uploader.onSuccessItem = this._onSuccessItem;
+    log("initFileUploader token", this.authService.getToken());
   }
 
-  private _registerOnChange=function(value: any){
+  private _registerOnChange = function (value: any) {
 
   }
-  _onSuccessItem =function (item: any,response:string,status:number, headers:any) {
-    let  responseObject=JSON.parse(response);
+  _onSuccessItem = function (item: any, response: string, status: number, headers: any) {
+    let responseObject = JSON.parse(response);
     let data = responseObject['data'];
-    log("_onSuccessItem",response);
+    log("_onSuccessItem", response);
 
     this.isFail = false;
     this._registerOnChange(data["picture"]);
     this._imageUrl = data["picture"];
 
-   log("_imageUrl"+this._imageUrl);
+    log("_imageUrl" + this._imageUrl);
   }
 
   writeValue(obj: any): void {
@@ -115,13 +115,13 @@ export class exeUploadFilePcComponent implements OnInit, OnChanges,ControlValueA
 
   }
 
-  registerOnChange(fn: any):void{
+  registerOnChange(fn: any): void {
 
     this._registerOnChange = fn;
   }
 
   @HostListener('change')
-  public onChange():any {
+  public onChange(): any {
 
   }
 }
