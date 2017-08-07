@@ -2,7 +2,7 @@ import {
   Component, Input, AfterViewInit, ViewChild, ComponentFactoryResolver, OnDestroy,
   ViewContainerRef, ReflectiveInjector
 } from '@angular/core';
-import {ComponentsService} from "../Components.service";
+import {ComponentsService} from "../ComponentsFactory.service";
 
 /**
  * @author yefs
