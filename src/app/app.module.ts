@@ -9,7 +9,8 @@ import { HomePage } from '../pages/home/home';
 import {ExePlatformModule} from "../platform/ExePlatformModule";
 import {FileUploadModule} from "../platform/service/transfer/pc/file-upload/file-upload.module";
 import {AuthService} from "../service/Auth.service";
-
+import {enableProdMode} from '@angular/core';
+enableProdMode();
 @NgModule({
   declarations: [
     MyApp,
