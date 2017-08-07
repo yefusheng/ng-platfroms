@@ -1,10 +1,11 @@
 import {Injectable} from "@angular/core";
+import {IAuthService} from "../platform/BaseAuth.service";
 
 /**
  * Created by yefs on 2017/7/28.
  */
 @Injectable()
-export   class AuthService {
+export   class AuthService implements IAuthService{
 
 
   getToken(): string {

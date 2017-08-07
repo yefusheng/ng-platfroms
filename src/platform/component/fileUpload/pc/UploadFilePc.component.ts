@@ -8,6 +8,7 @@ import {
 } from "@angular/forms";
 import {AuthService} from "../../../../service/Auth.service";
 import {log} from "../../../service/util/util";
+import {BaseAuthService} from "../../../BaseAuth.service";
 export const IMAGE_UPLOAD_VALUE_ACCESSOR: any = {
 
   provide: NG_VALUE_ACCESSOR,
@@ -52,7 +53,7 @@ export class exeUploadFilePcComponent implements OnInit, OnChanges, ControlValue
   uploader: FileUploader;
   headersList?: Array<Headers> = new Array<Headers>();
 
-  constructor(public authService: AuthService) {
+  constructor(public authService: BaseAuthService) {
 
   }
 
