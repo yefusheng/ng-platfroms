@@ -11,7 +11,7 @@ import {log} from "../service/util/util";
  * @author yefs
  */
 @Injectable()
-export class ComponentsService{
+export class ComponentsFactoryService{
   constructor(
    public platformService:ExePlatformService
   ){

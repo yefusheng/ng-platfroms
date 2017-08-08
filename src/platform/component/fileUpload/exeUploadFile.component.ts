@@ -2,7 +2,7 @@ import {
   Component, Input, AfterViewInit, ViewChild, ComponentFactoryResolver, OnDestroy,
   ViewContainerRef, ReflectiveInjector
 } from '@angular/core';
-import {ComponentsService} from "../ComponentsFactory.service";
+import {ComponentsFactoryService} from "../ComponentsFactory.service";
 
 /**
  * @author yefs
@@ -32,7 +32,7 @@ export class exeUploadFileComponent implements AfterViewInit, OnDestroy {
 
   constructor(
     private _componentFactoryResolver: ComponentFactoryResolver,
-    private componentsService:ComponentsService
+    private componentsService:ComponentsFactoryService
   ) { }
   @ViewChild("uploadfile",{read : ViewContainerRef}) uploadFile: ViewContainerRef;
   ngAfterViewInit() {

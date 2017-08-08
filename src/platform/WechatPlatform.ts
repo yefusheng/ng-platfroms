@@ -2,12 +2,23 @@ import {BasePlatform} from "./BasePlatform";
 import {Observable} from "rxjs/Observable";
 import {Platforms, wechat} from "./ExePlatform.service";
 import {Platform} from "ionic-angular";
+import {StorageService} from "./service/storage/Storage.service";
+import {Provider} from "@angular/core";
+import {TransFileWechat} from "./service/transfer/wechat/TransFileWechat.service";
+import {TransFileService} from "./service/transfer/TransFile.service";
+import {LoggerService} from "./service/logger/Logger.service";
+import {StorageWeChat} from "./service/storage/wechat/StorageWeChat";
+import {LoggerPcService} from "./service/logger/pc/LoggerPc.service";
 /**
  * Created by yefs on 2017/7/11.
  *
  * 微信平台
  */
-
+export const WECHAT_PLATFORM_PROVIDERS: Provider[] = [
+  {provide: StorageService, useClass: StorageWeChat},
+  {provide: TransFileService, useClass: TransFileWechat},
+  {provide: LoggerService, useClass: LoggerPcService},
+];
 export class WechatPlatform extends BasePlatform {
 
   // wechat: any;
