@@ -7,10 +7,10 @@
 export abstract  class BasePlatform {
 
 
-  protected abstract initPlatform();
+
 
   constructor() {
-    this.initPlatform();
+
   }
   public abstract getPlatformContext() :any;
 

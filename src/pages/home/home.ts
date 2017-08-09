@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import { NavController } from 'ionic-angular';
-import {StorageService} from "../../platform/service/storage/Storage.service";
+
 import {ExePlatformService} from "../../platform/ExePlatform.service";
-import {LoggerService} from "../../platform/service/logger/Logger.service";
+import {StorageService} from "../../platform/service/Storage.service";
+import {LoggerService} from "../../platform/service/Logger.service";
+
 /**
  * demo
  * 1.图片上传跨平台
@@ -34,7 +36,7 @@ export class HomePage    implements OnInit{
     this.storageService.getObject("userInfo",this.uploadinfo);
 
     // this.loggerService.log("getObject",this.uploadinfo.imageUrl);
-    this.platfromName=this.exePlatformService.getPlatformName();
+    this.platfromName=this.exePlatformService.getPlatformName()+"";
   }
 
 }

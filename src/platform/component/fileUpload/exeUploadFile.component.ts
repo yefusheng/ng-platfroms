@@ -14,7 +14,6 @@ import {ComponentsFactoryService} from "../ComponentsFactory.service";
   template: `
               <div  class="upload-pic">
                 <ng-template #uploadfile> </ng-template>
-                <!--<div #uploadfile></div>-->
               </div>
             `
 

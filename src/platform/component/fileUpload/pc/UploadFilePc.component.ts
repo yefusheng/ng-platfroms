@@ -1,13 +1,11 @@
 import {Component, forwardRef, HostListener, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {FileUploader, FileUploaderOptions, Headers} from "../../../service/transfer/pc/file-upload/file-uploader.class";
-import {ExePlatformService} from "../../../ExePlatform.service";
+import {FileUploader, FileUploaderOptions, Headers} from "../../../windows/service/transfer/file-upload/file-uploader.class";
 import {
 
   ControlValueAccessor,
   NG_VALUE_ACCESSOR
 } from "@angular/forms";
-import {AuthService} from "../../../../service/Auth.service";
-import {log} from "../../../service/util/util";
+import {log} from "../../../util/util";
 import {BaseAuthService} from "../../../BaseAuth.service";
 export const IMAGE_UPLOAD_VALUE_ACCESSOR: any = {
 

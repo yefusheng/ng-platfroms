@@ -1,6 +1,7 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import { Platform} from "ionic-angular";
-import {TransFileService} from "../../../service/transfer/TransFile.service";
+import {TransFileService} from "../../../service/TransFile.service";
+
 
 @Component({
   selector: 'exe-upload-file-native',

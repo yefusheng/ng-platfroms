@@ -1,8 +1,8 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {ActionSheetController, Platform} from "ionic-angular";
-import {NativeService} from "../../../service/transfer/native/NativeService";
-import {TransFileNative} from "../../../service/transfer/native/TransFileNative.service";
-import {TransFileService} from "../../../service/transfer/TransFile.service";
+import {NativeService} from "../../../native/service/transfer/NativeService";
+import {TransFileService} from "../../../service/TransFile.service";
+
 
 @Component({
   selector: 'exe-upload-file-native',
