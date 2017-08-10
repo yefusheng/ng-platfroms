@@ -1,12 +1,14 @@
-import {Component, forwardRef, HostListener, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {FileUploader, FileUploaderOptions, Headers} from "../../../windows/service/transfer/file-upload/file-uploader.class";
+import {
+  Component, ElementRef, forwardRef, HostListener, Input, OnChanges, OnInit, SimpleChanges,
+  ViewChild
+} from '@angular/core';
 import {
 
   ControlValueAccessor,
   NG_VALUE_ACCESSOR
 } from "@angular/forms";
+import {TransFileService} from "../../../service/TransFile.service";
 import {log} from "../../../util/util";
-import {BaseAuthService} from "../../../BaseAuth.service";
 export const IMAGE_UPLOAD_VALUE_ACCESSOR: any = {
 
   provide: NG_VALUE_ACCESSOR,
@@ -29,13 +31,11 @@ export class exeUploadFilePcComponent implements OnInit, OnChanges, ControlValue
   hasRound: boolean;
   @Input()
   serverUrl: string;
-
+  @ViewChild('inputFile')
+  inputFile: ElementRef;
 
   //图片地址
   private _imageUrl: string;
-
-  //是否必须
-  private _required: boolean;
 
   //是否上传失败
   isFail: boolean;
@@ -46,60 +46,24 @@ export class exeUploadFilePcComponent implements OnInit, OnChanges, ControlValue
   //是否正在上传
   isUploading: boolean;
 
+  protected element:ElementRef;
 
-  fileUploaderOptions: FileUploaderOptions;
-  uploader: FileUploader;
-  headersList?: Array<Headers> = new Array<Headers>();
-
-  constructor(public authService: BaseAuthService) {
-
+  constructor(
+    element:ElementRef,
+   private transFileService:TransFileService
+  ) {
+    this.element = element;
   }
-
 
   ngOnChanges(changes: SimpleChanges): void {
 
   }
-
   ngOnInit() {
-    this.initFileUploader();
-  }
 
-  initFileUploader() {
-    this.fileUploaderOptions = {
-      url: this.serverUrl,
-      authTokenHeader: this.authService.getToken(),
-      autoUpload: true
-    };
-
-    let header: Headers = {
-      name: "token",
-      value: this.authService.getToken()
-    };
-
-    this.headersList.push(header);
-
-    this.fileUploaderOptions.headers = this.headersList;
-    this.uploader = new FileUploader(
-      this.fileUploaderOptions);
-
-
-    this.uploader.onSuccessItem = this._onSuccessItem;
-    log("initFileUploader token", this.authService.getToken());
   }
 
   private _registerOnChange = function (value: any) {
 
-  }
-  _onSuccessItem = function (item: any, response: string, status: number, headers: any) {
-    let responseObject = JSON.parse(response);
-    let data = responseObject['data'];
-    log("_onSuccessItem", response);
-
-    this.isFail = false;
-    this._registerOnChange(data["picture"]);
-    this._imageUrl = data["picture"];
-
-    log("_imageUrl" + this._imageUrl);
   }
 
   writeValue(obj: any): void {
@@ -119,8 +83,41 @@ export class exeUploadFilePcComponent implements OnInit, OnChanges, ControlValue
     this._registerOnChange = fn;
   }
 
-  @HostListener('change')
-  public onChange(): any {
+  public getFilters():any {
+    return void 0;
+  }
 
+  public isEmptyAfterSelection():boolean {
+    return !!this.inputFile.nativeElement.attributes.multiple;
+  }
+
+  @HostListener('change')
+  public onChange():any {
+    // let files = this.uploader.isHTML5 ? this.element.nativeElement[0].files : this.element.nativeElement[0];
+    let files = this.inputFile.nativeElement.files;
+    log("files", files);
+    this.transFileService.upload(files,this.serverUrl).then(exeFileUploadResult => {
+      let responseObject = JSON.parse(exeFileUploadResult.response);
+      if(!responseObject){
+        return;
+      }
+      let data = responseObject['data'];
+      log("_onSuccessItem", exeFileUploadResult.response);
+
+      this.isFail = false;
+      this._registerOnChange(data["picture"]);
+      this._imageUrl = data["picture"];
+    });
+
+    // this.uploader.addToQueue(files, options, filters);
+    console.log(files[0]);
+    // if(!this.uploader.isHTML5) this.destroy();
+
+    if (this.isEmptyAfterSelection()) {
+      // todo
+      this.inputFile.nativeElement.value = '';
+      /*this.element.nativeElement
+       .replaceWith(this.element = this.element.nativeElement.clone(true)); // IE fix*/
+    }
   }
 }

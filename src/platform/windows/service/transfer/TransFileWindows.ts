@@ -1,11 +1,12 @@
 
 
-
+import { Headers} from "../../../windows/service/transfer/file-upload/file-uploader.class";
 import {FileUploader} from "./file-upload/file-uploader.class";
-import {FileUploadAdaper} from "./file-upload/FileUploadAdaper";
 import {FileUploaderOptions} from "./file-upload/file.interface";
 import {Injectable} from "@angular/core";
-import {ITransFile, FileUploadOptions} from "../../../service/TransFile.service";
+import {ITransFile, FileUploadOptions, FileOrUrl} from "../../../service/TransFile.service";
+import {BaseAuthService} from "../../../BaseAuth.service";
+import {log} from "../../../util/util";
 
 /**
  * Created by yefs on 2017/7/11.
@@ -15,30 +16,51 @@ import {ITransFile, FileUploadOptions} from "../../../service/TransFile.service"
 @Injectable()
 export class TransFilePc implements ITransFile {
 
-  public _uploader: FileUploader;
-  public _fileUploadAdaper: FileUploadAdaper;
 
-  constructor() {
-
+  fileUploaderOptions: FileUploaderOptions;
+  uploader: FileUploader;
+  headersList?: Array<Headers> = new Array<Headers>();
+  constructor(public authService: BaseAuthService) {
 
   }
 
-  upload(fileUrl: string, serveUrl: string, options?: FileUploadOptions): Promise<any> {
+  upload(fileUrl: string|File[], serveUrl: string, options?: FileUploadOptions): Promise<any> {
+    this.fileUploaderOptions = {
+      url: serveUrl,
+      // authTokenHeader: this.authService.getToken(),
+      autoUpload: true
+    };
+    let header: Headers = {
+      name: "token",
+      value: this.authService.getToken()
+    };
+    this.headersList.push(header);
+    this.fileUploaderOptions.headers = this.headersList;
+    if(!this.uploader){
+      this.uploader = new FileUploader(
+        this.fileUploaderOptions);
+    }
 
-    this._uploader = new FileUploader({url: serveUrl});
-    this._fileUploadAdaper = new FileUploadAdaper(this._uploader);
+    log("initFileUploader token", this.authService.getToken());
+     let  file:FileOrUrl=fileUrl;
 
-    let fileUploaderOptions: FileUploaderOptions;
-    fileUploaderOptions.headers[0].name = "token";
-    fileUploaderOptions.headers[0].value = options.headers + "";
-    fileUploaderOptions.url = serveUrl;
     return new Promise((resolve, reject) => {
-      this._fileUploadAdaper.upload(fileUploaderOptions, function (responseData) {
-          resolve(responseData);
-        },
-        function onFail(error) {
-          reject(error);
-        });
+
+      this.uploader.onSuccessItem = (item: any,response:string,status:number, headers:any)=>{
+        if(!response){
+          return;
+        }
+        resolve(
+          {response: response?response:""});
+         }
+      this.uploader.onErrorItem = (item: any,response:string,status:number, headers:any)=>{
+        if(!response){
+          return;
+        }
+        reject({response: response?response:""});
+      }
+      this.uploader.addToQueue(<File[]>file,this.fileUploaderOptions);
+      this.uploader.uploadAll();
     });
   }
 

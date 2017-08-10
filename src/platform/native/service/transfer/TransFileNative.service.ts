@@ -34,7 +34,7 @@ export class TransFileNative implements ITransFile{
       fileName: path.substr(path.lastIndexOf('/') + 1)
     }
     let observable= Observable.fromPromise(this.fileTransfer.upload(path,url, options)).map((result)=> {
-        let exeFileUploadResult :ExeFileUploadResult;
+        let exeFileUploadResult :ExeFileUploadResult=null;
         exeFileUploadResult.response=result.response;
         log("exeFileUploadResult"+result);
        return exeFileUploadResult;

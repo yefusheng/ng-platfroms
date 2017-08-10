@@ -55,7 +55,7 @@ export interface ExeFileUploadResult {
   response: string;
 
 }
-
+export type FileOrUrl = string | File[];
 export interface ITransFile{
 
 
@@ -71,7 +71,7 @@ export interface ITransFile{
    * @param {boolean} trustAllHosts  Optional parameter, defaults to false. If set to true, it accepts all security certificates. This is useful since Android rejects self-signed security certificates. Not recommended for production use. Supported on Android and iOS.
    * @returns {Promise<FileUploadResult>} Returns a Promise that resolves to a FileUploadResult and rejects with FileTransferError.
    */
-  upload(fileUrl: string, url: string, options?: FileUploadOptions): Promise<any>;
+  upload(file, url: string, options?: FileUploadOptions): Promise<any>;
 
 
   /**
