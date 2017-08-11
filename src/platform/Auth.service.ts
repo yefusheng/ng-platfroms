@@ -9,12 +9,19 @@ export interface  IAuthService {
 
   getToken(): string ;
 
-
+  setToken(token: string) ;
 }
 
-export  class BaseAuthService implements IAuthService{
+export  class AuthService implements IAuthService{
+
+  token:string="";
+
+  setToken(token: string) {
+     this.token=token;
+  }
+
   getToken(): string {
-    throw new Error("Method not implemented.");
+    return this.token;
   }
 
 }

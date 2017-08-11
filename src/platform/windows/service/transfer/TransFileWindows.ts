@@ -5,7 +5,7 @@ import {FileUploader} from "./file-upload/file-uploader.class";
 import {FileUploaderOptions} from "./file-upload/file.interface";
 import {Injectable} from "@angular/core";
 import {ITransFile, FileUploadOptions, FileOrUrl} from "../../../service/TransFile.service";
-import {BaseAuthService} from "../../../BaseAuth.service";
+import {AuthService} from "../../../Auth.service";
 import {log} from "../../../util/util";
 
 /**
@@ -20,7 +20,7 @@ export class TransFilePc implements ITransFile {
   fileUploaderOptions: FileUploaderOptions;
   uploader: FileUploader;
   headersList?: Array<Headers> = new Array<Headers>();
-  constructor(public authService: BaseAuthService) {
+  constructor(public authService: AuthService) {
 
   }
 

@@ -4,6 +4,7 @@ import { NavController } from 'ionic-angular';
 import {ExePlatformService} from "../../platform/ExePlatform.service";
 import {StorageService} from "../../platform/service/Storage.service";
 import {LoggerService} from "../../platform/service/Logger.service";
+import {AuthService} from "../../platform/Auth.service";
 
 /**
  * demo
@@ -24,13 +25,15 @@ export class HomePage    implements OnInit{
   platfromName:string="";
   constructor(private storageService:StorageService,
               private  exePlatformService:ExePlatformService,
-              private  loggerService:LoggerService
+              private  loggerService:LoggerService,
+              private authService :AuthService
   ) {
     this.uploadinfo.serverUrl=this.uploadUrl;
 
     this.loggerService.log("serverUrl"+this.uploadinfo.serverUrl);
   }
   ngOnInit(): void {
+    this.authService.setToken("abc");
     this.storageService.saveObject("userInfo",this.uploadinfo);
 
     this.storageService.getObject("userInfo",this.uploadinfo);
