@@ -1,6 +1,6 @@
 
 
-import { Headers} from "../../../windows/service/transfer/file-upload/file-uploader.class";
+import { Headers} from "./file-upload/file-uploader.class";
 import {FileUploader} from "./file-upload/file-uploader.class";
 import {FileUploaderOptions} from "./file-upload/file.interface";
 import {Injectable} from "@angular/core";

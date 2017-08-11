@@ -6,7 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import {ExePlatformModule} from "../platform/ExePlatformModule";
+import {ExePlatformModule} from "../platform/src/ExePlatformModule";
 
 import {enableProdMode} from '@angular/core';
 enableProdMode();

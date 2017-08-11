@@ -16,9 +16,7 @@ let platformModule=new PlatformStragety().getStragety();
   entryComponents: [exeUploadFileComponent],
   providers: [
 
-    {
-      provide: AuthService, useClass: AuthService
-    },
+    AuthService,
     ExePlatformService,
     {
       provide: ComponentsFactoryService, useFactory: (ExePlatformService) => {

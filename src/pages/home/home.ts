@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import {ExePlatformService} from "../../platform/ExePlatform.service";
-import {StorageService} from "../../platform/service/Storage.service";
-import {LoggerService} from "../../platform/service/Logger.service";
-import {AuthService} from "../../platform/Auth.service";
+import {ExePlatformService} from "../../platform/src/ExePlatform.service";
+import {StorageService} from "../../platform/src/service/Storage.service";
+import {LoggerService} from "../../platform/src/service/Logger.service";
+import {AuthService} from "../../platform/src/Auth.service";
 
 /**
  * demo

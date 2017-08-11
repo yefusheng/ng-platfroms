@@ -6,7 +6,7 @@ import {TransFileService} from "../../../service/TransFile.service";
 
 @Component({
   selector: 'exe-upload-file-native',
-  templateUrl: 'UploadFileNative.html',
+  templateUrl: 'src/platform/src/dynamic-component/fileUpload/native/UploadFileNative.html',
 
 })
 

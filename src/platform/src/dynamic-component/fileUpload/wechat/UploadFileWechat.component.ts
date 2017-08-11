@@ -5,7 +5,7 @@ import {TransFileService} from "../../../service/TransFile.service";
 
 @Component({
   selector: 'exe-upload-file-native',
-  templateUrl: 'UploadFileWechat.html',
+  templateUrl: 'src/platform/src/dynamic-component/fileUpload/wechat/UploadFileWechat.html',
 
 })
 
