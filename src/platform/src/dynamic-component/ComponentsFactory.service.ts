@@ -1,10 +1,11 @@
 
 import { Injectable }           from '@angular/core';
-import {exeUploadFileNativeComponent} from "./fileUpload/native/UploadFileNative.component";
-import {exeUploadFilePcComponent} from "./fileUpload/pc/UploadFilePc.component";
+
 import {compoentItem} from "./compoentItem";
 import {ExePlatformService} from "../ExePlatform.service";
 import {exeUploadFileWechatComponent} from "./fileUpload/wechat/UploadFileWechat.component";
+import {exeUploadFileNativeComponent} from "./fileUpload/native/UploadFileNative.component";
+import {exeUploadFilePcComponent} from "./fileUpload/pc/UploadFilePc.component";
 import {log} from "../util/util";
 /**
  * 动态组件提供商

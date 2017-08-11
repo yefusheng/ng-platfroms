@@ -17,7 +17,7 @@ export const IMAGE_UPLOAD_VALUE_ACCESSOR: any = {
 };
 @Component({
   selector: 'exe-upload-file-pc',
-  templateUrl: 'src/platform/src/dynamic-component/fileUpload/pc/UploadFilePc.html',
+  templateUrl: 'UploadFilePc.html',
   providers: [IMAGE_UPLOAD_VALUE_ACCESSOR],
 
 })

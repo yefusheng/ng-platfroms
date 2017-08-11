@@ -8,16 +8,8 @@ import {LoggerPcService} from "./service/logger/LoggerWindows.service";
 import {LoggerService} from "../service/Logger.service";
 import {TransFileService} from "../service/TransFile.service";
 import {WechatPlatform} from "./WechatPlatform";
-import {exeUploadFileWechatComponent} from "../dynamic-component/fileUpload/wechat/UploadFileWechat.component";
-
-
-
 
 @NgModule({
-
-  exports: [exeUploadFileWechatComponent],
-  declarations: [ exeUploadFileWechatComponent],
-  entryComponents: [exeUploadFileWechatComponent],
   providers: [
     WechatPlatform,
     {provide: StorageService, useClass: StorageWeChat},

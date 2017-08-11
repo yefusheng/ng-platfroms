@@ -15,16 +15,13 @@ import {CallNumber} from "@ionic-native/call-number";
 import {NativeService} from "./service/transfer/NativeService";
 import {AppVersion} from "@ionic-native/app-version";
 import {Camera} from "@ionic-native/camera";
-import {exeUploadFileNativeComponent} from "../dynamic-component/fileUpload/native/UploadFileNative.component";
+;
 
 
 
 
 @NgModule({
 
-  exports: [exeUploadFileNativeComponent],
-  declarations: [ exeUploadFileNativeComponent],
-  entryComponents: [exeUploadFileNativeComponent],
   providers: [
 
     {provide: StorageService, useClass: StorageNative},

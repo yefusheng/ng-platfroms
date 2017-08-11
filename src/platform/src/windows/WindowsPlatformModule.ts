@@ -8,17 +8,12 @@ import {TransFilePc} from "./service/transfer/TransFileWindows";
 import {LoggerPcService} from "../wechat/service/logger/LoggerWindows.service";
 import {LoggerService} from "../service/Logger.service";
 import {TransFileService} from "../service/TransFile.service";
-import {FileSelectDirective} from "./service/transfer/file-upload/file-select.directive";
-import {exeUploadFilePcComponent} from "../dynamic-component/fileUpload/pc/UploadFilePc.component";
-
 
 @NgModule({
   imports: [
     FileUploadModule
   ],
-  exports: [FileUploadModule,exeUploadFilePcComponent],
-  declarations: [ exeUploadFilePcComponent],
-  entryComponents: [exeUploadFilePcComponent],
+  exports: [FileUploadModule],
   providers: [
 
     {provide: StorageService, useClass: StorageWindows},

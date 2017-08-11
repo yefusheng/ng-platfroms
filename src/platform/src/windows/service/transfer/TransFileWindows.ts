@@ -27,20 +27,20 @@ export class TransFilePc implements ITransFile {
   upload(fileUrl: string|File[], serveUrl: string, options?: FileUploadOptions): Promise<any> {
     this.fileUploaderOptions = {
       url: serveUrl,
-      // authTokenHeader: this.authService.getToken(),
+      authTokenHeader: this.authService.getToken(),
       autoUpload: true
     };
-    let header: Headers = {
-      name: "token",
-      value: this.authService.getToken()
-    };
-    this.headersList.push(header);
-    this.fileUploaderOptions.headers = this.headersList;
+    // let header: Headers = {
+    //   name: "token",
+    //   value: this.authService.getToken()
+    // };
+    // this.headersList.push(header);
+    // this.fileUploaderOptions.headers = this.headersList;
     if(!this.uploader){
       this.uploader = new FileUploader(
         this.fileUploaderOptions);
     }
-
+    this.uploader.setOptions( this.fileUploaderOptions);
     log("initFileUploader token", this.authService.getToken());
      let  file:FileOrUrl=fileUrl;
 
