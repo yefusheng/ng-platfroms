@@ -1,9 +1,8 @@
 {
   "name": "angular-platforms",
-  "version": "0.0.2",
+  "version": "0.0.8",
   "description": "Angular -Multi platform single interface",
-  "main": "./bundles/platforms.umd.js",
-  "module": "index.js",
+  "main": "index.js",
   "typings": "index.d.ts",
   "author": "yefusheng",
   "license": "MIT",

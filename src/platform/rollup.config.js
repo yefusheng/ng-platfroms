@@ -10,7 +10,7 @@
 
 
 export default {
-  entry: 'dist/index.js',
+  entry: 'dist/index.d.js',
   dest: 'dist/bundles/amazing.umd.js',
   sourceMap: false,
   format: 'umd',
