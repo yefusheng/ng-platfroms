@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 
 import { ExePlatformService} from "./ExePlatform.service";
-import {ComponentsFactoryService} from "./component/ComponentsFactory.service";
-import {exeUploadFileComponent} from "./component/fileUpload/exeUploadFile.component";
+import {ComponentsFactoryService} from "./dynamic-component/ComponentsFactory.service";
+import {exeUploadFileComponent} from "./dynamic-component/fileUpload/exeUploadFile.component";
 import {BaseAuthService} from "./BaseAuth.service";
 import {AuthService} from "../service/Auth.service";
 import {PlatformStragety} from "./PlatformStragety";

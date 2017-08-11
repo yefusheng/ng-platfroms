@@ -9,7 +9,7 @@ import {LoggerPcService} from "../wechat/service/logger/LoggerWindows.service";
 import {LoggerService} from "../service/Logger.service";
 import {TransFileService} from "../service/TransFile.service";
 import {FileSelectDirective} from "./service/transfer/file-upload/file-select.directive";
-import {exeUploadFilePcComponent} from "../component/fileUpload/pc/UploadFilePc.component";
+import {exeUploadFilePcComponent} from "../dynamic-component/fileUpload/pc/UploadFilePc.component";
 
 
 @NgModule({
@@ -23,7 +23,7 @@ import {exeUploadFilePcComponent} from "../component/fileUpload/pc/UploadFilePc.
 
     {provide: StorageService, useClass: StorageWindows},
     {provide: TransFileService, useClass: TransFilePc},
-    {provide: LoggerService, useClass: LoggerPcService},,
+    {provide: LoggerService, useClass: LoggerPcService}
   ]
 
 })

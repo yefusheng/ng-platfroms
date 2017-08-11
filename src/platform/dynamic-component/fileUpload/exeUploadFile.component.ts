@@ -49,11 +49,11 @@ export class exeUploadFileComponent implements AfterViewInit, OnDestroy {
      componentRef.instance.serverUrl=this.serverUrl;
 
     // let providers = ReflectiveInjector.resolve([TransFileService]); //为组件添加 providers
-    // let injector = ReflectiveInjector.fromResolvedProviders(providers, this.exeUploadId.parentInjector); //创建注入器给 component (记得要继承哦)
-    // let factory = this._componentFactoryResolver.resolveComponentFactory(this.componentsService.getUploadComponent()); //创建 component 工厂
-    // let component = factory.create(injector); //创建 component, 这是就把注入器放进了, 后面的 array 是给 ng-content 用的
-    // // component.instance.name = "keatkeat"; // 对 input, output 做点东西
-    //  this.exeUploadId.insert(component.hostView, 0); // 插入到模板中  0 是 position, 如果是 0 其实可以不用放.
+    // let injector = ReflectiveInjector.fromResolvedProviders(providers, this.exeUploadId.parentInjector); //创建注入器给 dynamic-component (记得要继承哦)
+    // let factory = this._componentFactoryResolver.resolveComponentFactory(this.componentsService.getUploadComponent()); //创建 dynamic-component 工厂
+    // let dynamic-component = factory.create(injector); //创建 dynamic-component, 这是就把注入器放进了, 后面的 array 是给 ng-content 用的
+    // // dynamic-component.instance.name = "keatkeat"; // 对 input, output 做点东西
+    //  this.exeUploadId.insert(dynamic-component.hostView, 0); // 插入到模板中  0 是 position, 如果是 0 其实可以不用放.
   }
 
 
