@@ -5,8 +5,6 @@ import {ExePlatformService} from "../ExePlatform.service";
 import {exeUploadFilePcComponent} from "./fileUpload/pc/UploadFilePc.component";
 import {exeUploadFileWechatComponent} from "./fileUpload/wechat/UploadFileWechat.component";
 import {exeUploadFileNativeComponent} from "./fileUpload/native/UploadFileNative.component";
-import {PlatformStragety} from "../PlatformStragety";
-
 
 @NgModule({
 
