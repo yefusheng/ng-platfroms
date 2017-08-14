@@ -10,4 +10,11 @@
 // by the TypeScript language service and during build for verification. `ngc`
 // replaces this file with production index.d.ts when it rewrites private symbol
 // names.
+
 export {ExePlatformModule} from './ExePlatformModule';
+export {AuthService} from './Auth.service';
+export {ExePlatformConponentModule} from './dynamic-component/ExePlatformConponentModule';
+export {WindowsPlatformModule} from './windows/WindowsPlatformModule';
+export {WechatPlatformModule} from './Wechat/WechatPlatformModule';
+export {NativePlatformModule} from './Native/NativePlatformModule';
+export * from './ExePlatformModule';

@@ -16,5 +16,6 @@ export {ExePlatformModule} from './src/ExePlatformModule';
 export {AuthService} from './src/Auth.service';
 export {ExePlatformConponentModule} from './src/dynamic-component/ExePlatformConponentModule';
 export {WindowsPlatformModule} from './src/windows/WindowsPlatformModule';
-export {WechatPlatformModule} from './src/Wechat/WechatPlatformModule'
-export {NativePlatformModule} from './src/Native/NativePlatformModule'
+export {WechatPlatformModule} from './src/Wechat/WechatPlatformModule';
+export {NativePlatformModule} from './src/Native/NativePlatformModule';
+export * from './src';
