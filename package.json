@@ -9,7 +9,7 @@
   "scripts": {
     "cleanup": "rimraf dist/bundles dist/src dist/index.d.ts dist/index.metadata.json dist/index.js dist/index.js.map dist/README.md",
     "bundling": "rollup -c",
-    "minify": "uglifyjs dist/bundles/async-local-storage.umd.js --screw-ie8 --compress --mangle --comments --output dist/bundles/async-local-storage.umd.min.js",
+    "minify": "uglifyjs dist/bundles/ng-platforms.umd.js --screw-ie8 --compress --mangle --comments --output dist/bundles/ng-platforms.umd.min.js",
     "copy": "copyfiles README.md dist",
     "build": "npm run cleanup && ngc && npm run bundling && npm run minify && npm run copy"
   },
