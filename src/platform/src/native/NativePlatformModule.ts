@@ -15,7 +15,12 @@ import {CallNumber} from "@ionic-native/call-number";
 import {NativeService} from "./service/transfer/NativeService";
 import {AppVersion} from "@ionic-native/app-version";
 import {Camera} from "@ionic-native/camera";
-;
+export let NativePlatformProvides=[
+
+  {provide: StorageService, useClass: StorageNative},
+  {provide: TransFileService, useClass: TransFileNative},
+  {provide: LoggerService, useClass: LoggerNativeService}
+]
 
 
 
@@ -24,9 +29,8 @@ import {Camera} from "@ionic-native/camera";
 
   providers: [
 
-    {provide: StorageService, useClass: StorageNative},
-    {provide: TransFileService, useClass: TransFileNative},
-    {provide: LoggerService, useClass: LoggerNativeService},
+    NativePlatformProvides,
+
     TransFileNative,
     AppVersion,
 

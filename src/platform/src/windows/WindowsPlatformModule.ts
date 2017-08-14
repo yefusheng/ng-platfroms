@@ -8,7 +8,12 @@ import {TransFilePc} from "./service/transfer/TransFileWindows";
 import {LoggerPcService} from "../wechat/service/logger/LoggerWindows.service";
 import {LoggerService} from "../service/Logger.service";
 import {TransFileService} from "../service/TransFile.service";
+export let windowsPlatformProvides=[
 
+  {provide: StorageService, useClass: StorageWindows},
+  {provide: TransFileService, useClass: TransFilePc},
+  {provide: LoggerService, useClass: LoggerPcService}
+]
 @NgModule({
   imports: [
     FileUploadModule
@@ -16,9 +21,7 @@ import {TransFileService} from "../service/TransFile.service";
   exports: [FileUploadModule],
   providers: [
 
-    {provide: StorageService, useClass: StorageWindows},
-    {provide: TransFileService, useClass: TransFilePc},
-    {provide: LoggerService, useClass: LoggerPcService}
+    windowsPlatformProvides
   ]
 
 })
