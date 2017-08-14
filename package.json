@@ -1,6 +1,6 @@
 {
   "name": "angular-platforms",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Angular -Multi platform single interface",
   "main": "index.js",
   "typings": "index.d.ts",
@@ -32,10 +32,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yefusheng/angular.git"
+    "url": "git+https://github.com/yefusheng/ng-platfroms.git"
   },
   "bugs": {
-    "url": "https://github.com/yefusheng/angular/issues"
+    "url": "https://github.com/yefusheng/ng-platfroms/issues"
   },
-  "homepage": "https://github.com/yefusheng/angular#readme"
+  "homepage": "https://github.com/yefusheng/ng-platfroms#readme"
 }
