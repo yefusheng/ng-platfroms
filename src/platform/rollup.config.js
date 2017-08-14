@@ -10,11 +10,11 @@
 
 
 export default {
-  entry: 'dist/index.d.js',
-  dest: 'dist/bundles/amazing.umd.js',
+  entry: 'dist/index.js',
+  dest: 'dist/bundles/platfroms.umd.js',
   sourceMap: false,
   format: 'umd',
-  moduleName: 'ng.amazing',
+  moduleName: 'ng.platfroms',
   globals: {
     '@angular/core': 'ng.core',
     'rxjs/Observable': 'Rx',
