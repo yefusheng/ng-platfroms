@@ -11,7 +11,7 @@
 
 export default {
   entry: 'dist/index.js',
-  dest: 'dist/bundles/platfroms.umd.js',
+  dest: 'dist/bundles/ng-platforms.umd.js',
   sourceMap: false,
   format: 'umd',
   moduleName: 'ng.platfroms',
