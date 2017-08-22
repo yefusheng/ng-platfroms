@@ -1,6 +1,6 @@
 {
-  "name": "angular-platforms",
-  "version": "0.1.6",
+  "name": "ng-platforms",
+  "version": "0.1.8",
   "description": "Angular -Multi platform single interface",
   "main": "dist/index.js",
   "typings": "index.d.ts",

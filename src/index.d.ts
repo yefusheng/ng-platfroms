@@ -9,6 +9,10 @@
 
 export {ExePlatformModule} from './ExePlatformModule';
 export {AuthService} from './Auth.service';
+export {StorageService} from './service/Storage.service';
+export {LoggerService} from './service/Logger.service';
+export {ExePlatformService} from './ExePlatform.service';
+
 export {ExePlatformConponentModule} from './dynamic-component/ExePlatformConponentModule';
 export {WindowsPlatformModule} from './windows/WindowsPlatformModule';
 export {WechatPlatformModule} from './Wechat/WechatPlatformModule'
