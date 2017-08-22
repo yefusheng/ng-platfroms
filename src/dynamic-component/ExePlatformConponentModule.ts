@@ -6,6 +6,9 @@ import {exeUploadFilePcComponent} from "./fileUpload/pc/UploadFilePc.component";
 import {exeUploadFileWechatComponent} from "./fileUpload/wechat/UploadFileWechat.component";
 import {exeUploadFileNativeComponent} from "./fileUpload/native/UploadFileNative.component";
 
+export function componentsFactory(exePlatformService: ExePlatformService) {
+  return new  ComponentsFactoryService(exePlatformService);
+}
 @NgModule({
 
   exports: [exeUploadFileComponent],
@@ -14,13 +17,13 @@ import {exeUploadFileNativeComponent} from "./fileUpload/native/UploadFileNative
   providers: [
 
     {
-      provide: ComponentsFactoryService, useFactory: (ExePlatformService) => {
-      return new ComponentsFactoryService(ExePlatformService);
-    },deps:[ExePlatformService]
+      provide: ComponentsFactoryService, useFactory: componentsFactory
+      ,deps:[ExePlatformService]
     }
   ]
 
 })
+
 export class ExePlatformConponentModule {
 
 

@@ -35,7 +35,7 @@ export class exeUploadFilePcComponent implements OnInit, OnChanges, ControlValue
   inputFile: ElementRef;
 
   //图片地址
-  private _imageUrl: string;
+  public _imageUrl: string;
 
   //是否上传失败
   isFail: boolean;
