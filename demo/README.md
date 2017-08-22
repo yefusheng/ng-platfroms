@@ -61,7 +61,7 @@ cordova plugin add cordova-plugin-wechat --variable wechatappid=YOUR_WECHAT_APPI
 
 
 
- cnpm install angular-platforms
+ cnpm install ng-platforms
 
 
 

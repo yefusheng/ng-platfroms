@@ -18,3 +18,7 @@ export {ExePlatformConponentModule} from './src/dynamic-component/ExePlatformCon
 export {WindowsPlatformModule} from './src/windows/WindowsPlatformModule';
 export {WechatPlatformModule} from './src/Wechat/WechatPlatformModule';
 export {NativePlatformModule} from './src/Native/NativePlatformModule';
+
+export {StorageService} from './src/service/Storage.service';
+export {LoggerService} from './src/service/Logger.service';
+export {ExePlatformService} from './src/ExePlatform.service';

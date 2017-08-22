@@ -58,7 +58,7 @@
     "ionic-plugin-keyboard"
   ],
   "cordovaPlatforms": [],
-  "description": "exePlatform: An Ionic project",
+  "description": "An Ionic demo project",
   "bugs": {
     "url": "https://github.com/yefusheng/angular/issues"
   },
