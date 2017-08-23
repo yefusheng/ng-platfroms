@@ -4,7 +4,7 @@ import { NavController } from 'ionic-angular';
 import {ExePlatformService} from "../../../../src/ExePlatform.service";
 import {StorageService} from "../../../../src/service/Storage.service";
 import {LoggerService} from "../../../../src/service/Logger.service";
-import {AuthService} from "angular-platforms";
+import {AuthService} from "ng-platforms";
 // import {AuthService} from "../../../../src/Auth.service";
 /**
  * demo
