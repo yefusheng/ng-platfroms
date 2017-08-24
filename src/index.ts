@@ -13,7 +13,7 @@ export {StorageService} from './service/Storage.service';
 export {LoggerService} from './service/Logger.service';
 export {ExePlatformService} from './ExePlatform.service';
 
-export {ExePlatformConponentModule} from './dynamic-component/ExePlatformConponentModule';
+//export {ExePlatformConponentModule} from './dynamic-component/ExePlatformConponentModule';/
 export {WindowsPlatformModule} from './windows/WindowsPlatformModule';
 export {WechatPlatformModule} from './Wechat/WechatPlatformModule'
 export {NativePlatformModule} from './Native/NativePlatformModule'
