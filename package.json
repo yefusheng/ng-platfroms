@@ -1,79 +1,79 @@
 {
-  "name": "ng-platforms",
-  "version": "0.1.9",
-  "description": "Angular -Multi platform single interface",
-  "main": "dist/es2015/index.js",
-  "module": "dist/es2015/index.js",
-  "typings": "dist/es2015/index.d.ts",
-  "scripts": {
-    "clean": "rm -rf dist",
-    "clean-generated": "rm -rf src/*.ngfactory.ts && rm -rf src/*.ngsummary.json",
-    "build-cjs": "ngc -p .",
-    "build-es2015": "ngc -p ./tsconfig-es2015.json",
-    "preparePackage": "node ./scripts/copy-package",
-    "build": "npm run clean && npm run build-cjs && npm run build-es2015 && npm run preparePackage && npm run clean-generated",
-    "publishPackage": "npm run build && cd dist && npm publish"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yefusheng/ng-platfroms.git"
-  },
-  "keywords": [
-    "exe",
-    "angular",
-    "platforms",
-    "cordova",
-    "hybrid"
-  ],
-  "author": "Ye Fusheng",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/yefusheng/ng-platfroms/issues"
-  },
-  "homepage": "https://github.com/yefusheng/ng-platfroms#readme",
-  "dependencies": {
-    "@angular/common": "^4.3.6",
-    "@angular/forms": "^4.3.6",
-    "@angular/platform-browser": "^4.3.6",
-    "@ionic-native/app-version": "^4.1.0",
-    "@ionic-native/call-number": "^4.1.0",
-    "@ionic-native/camera": "^4.1.0",
-    "@ionic-native/core": "^4.1.0",
-    "@ionic-native/file": "^4.1.0",
-    "@ionic-native/file-opener": "^4.1.0",
-    "@ionic-native/image-picker": "^4.1.0",
-    "@ionic-native/in-app-browser": "^4.1.0",
-    "@ionic-native/network": "^4.1.0",
-    "@ionic-native/splash-screen": "^4.1.0",
-    "@ionic-native/status-bar": "^4.1.0",
-    "@ionic-native/toast": "^4.1.0",
-    "@ionic-native/transfer": "^3.14.0",
-    "@ionic/storage": "^2.0.1",
-    "@types/localforage": "0.0.30",
-    "crypto-browserify": "^3.11.1",
-    "ionic-angular": "^3.6.0",
-    "ionic-native": "^2.9.0",
-    "localforage": "~1.4.2",
-    "localforage-cordovasqlitedriver": "~1.5.0"
-  },
-  "devDependencies": {
-    "@angular/core": "4.1.2",
-    "@angular/compiler": "4.1.2",
-    "@angular/compiler-cli": "4.1.2",
-    "@types/node": "^6.0.41",
-    "canonical-path": "0.0.2",
-    "cpr": "^2.0.0",
-    "dgeni": "0.4.7",
-    "dgeni-packages": "0.16.10",
-    "gulp": "^3.9.1",
-    "semver": "^5.3.0",
-    "rxjs": "5.1.1",
-    "tslint": "^3.10.2",
-    "tslint-ionic-rules": "*",
-    "typescript": "~2.3.3"
-  },
-  "peerDependencies": {
-    "@angular/core": "*",
-    "rxjs": "*"
-  }
+    "name": "ng-platforms",
+    "version": "0.2.0",
+    "description": "Angular -Multi platform single interface",
+    "main": "dist/es2015/index.js",
+    "module": "dist/es2015/index.js",
+    "typings": "dist/es2015/index.d.ts",
+    "scripts": {
+        "clean": "rm -rf dist",
+        "clean-generated": "rm -rf src/*.ngfactory.ts && rm -rf src/*.ngsummary.json",
+        "build-cjs": "ngc -p .",
+        "build-es2015": "ngc -p ./tsconfig-es2015.json",
+        "preparePackage": "node ./scripts/copy-package",
+        "build": "npm run clean && npm run build-cjs && npm run build-es2015 && npm run preparePackage && npm run clean-generated",
+        "publishPackage": "npm run build && cd dist && npm publish"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yefusheng/ng-platfroms.git"
+    },
+    "keywords": [
+        "exe",
+        "angular",
+        "platforms",
+        "cordova",
+        "hybrid"
+    ],
+    "author": "Ye Fusheng",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/yefusheng/ng-platfroms/issues"
+    },
+    "homepage": "https://github.com/yefusheng/ng-platfroms#readme",
+    "dependencies": {
+        "@angular/common": "^4.3.6",
+        "@angular/forms": "^4.3.6",
+        "@angular/platform-browser": "^4.3.6",
+        "@ionic-native/app-version": "^4.1.0",
+        "@ionic-native/call-number": "^4.1.0",
+        "@ionic-native/camera": "^4.1.0",
+        "@ionic-native/core": "^4.1.0",
+        "@ionic-native/file": "^4.1.0",
+        "@ionic-native/file-opener": "^4.1.0",
+        "@ionic-native/image-picker": "^4.1.0",
+        "@ionic-native/in-app-browser": "^4.1.0",
+        "@ionic-native/network": "^4.1.0",
+        "@ionic-native/splash-screen": "^4.1.0",
+        "@ionic-native/status-bar": "^4.1.0",
+        "@ionic-native/toast": "^4.1.0",
+        "@ionic-native/transfer": "^3.14.0",
+        "@ionic/storage": "^2.0.1",
+        "@types/localforage": "0.0.30",
+        "crypto-browserify": "^3.11.1",
+        "ionic-angular": "^3.6.0",
+        "ionic-native": "^2.9.0",
+        "localforage": "~1.4.2",
+        "localforage-cordovasqlitedriver": "~1.5.0"
+    },
+    "devDependencies": {
+        "@angular/core": "4.1.2",
+        "@angular/compiler": "4.1.2",
+        "@angular/compiler-cli": "4.1.2",
+        "@types/node": "^6.0.41",
+        "canonical-path": "0.0.2",
+        "cpr": "^2.0.0",
+        "dgeni": "0.4.7",
+        "dgeni-packages": "0.16.10",
+        "gulp": "^3.9.1",
+        "semver": "^5.3.0",
+        "rxjs": "5.1.1",
+        "tslint": "^3.10.2",
+        "tslint-ionic-rules": "*",
+        "typescript": "~2.3.3"
+    },
+    "peerDependencies": {
+        "@angular/core": "*",
+        "rxjs": "*"
+    }
 }

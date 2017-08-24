@@ -72,7 +72,7 @@ cordova plugin add cordova-plugin-wechat --variable wechatappid=YOUR_WECHAT_APPI
 在app.module.ts模块引入ExePlatformModule模块
 
 ```
-import {ExePlatformModule} from "angular-platforms";
+import {ExePlatformModule} from "ng-platforms";
 ```
 
 
