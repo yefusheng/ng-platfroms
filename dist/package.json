@@ -1,7 +1,7 @@
 {
-  "name": "@exe-front/ngx-storage",
-  "version": "0.0.1",
-  "description": "EXE ngx Storage utility",
+  "name": "ng-platforms",
+  "version": "0.2.0",
+  "description": "Angular -Multi platform single interface",
   "main": "dist/es2015/index.js",
   "module": "dist/es2015/index.js",
   "typings": "dist/es2015/index.d.ts",
@@ -16,21 +16,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@192.168.30.8:10022/exe-front/ngx-storage.git"
+    "url": "git+https://github.com/yefusheng/ng-platfroms.git"
   },
   "keywords": [
     "exe",
     "angular",
-    "localforage",
+    "platforms",
     "cordova",
     "hybrid"
   ],
-  "author": "Liu YuDa <sagittarius-rev@hotmail.com>",
+  "author": "Ye Fusheng",
   "license": "MIT",
   "bugs": {
-    "url": "http://git@192.168.30.8:10022/exe-front/ngx-storage/issues"
+    "url": "https://github.com/yefusheng/ng-platfroms/issues"
   },
-  "homepage": "",
+  "homepage": "https://github.com/yefusheng/ng-platfroms#readme",
   "dependencies": {
     "@angular/common": "^4.3.6",
     "@angular/forms": "^4.3.6",
